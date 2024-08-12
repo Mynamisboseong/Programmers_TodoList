@@ -24,4 +24,6 @@ function TodoList(params) {
         `
     }
 
+    this.render();
+
 }
