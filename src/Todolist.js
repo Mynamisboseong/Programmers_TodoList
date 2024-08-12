@@ -1,11 +1,11 @@
 // params.$target - 해당 컴포넌트가 추가가 될 DOM 엘리먼트
 // params.initialState - 해당 컴포넌트의 초기상태 (초기상태에 따라서 리스트를 그리는 것.)
-function TodoList(params) {
+function TodoList({$target, initialState}) {
     const $todoList = document.createElement('div');
-    const $target = params.$target;
     $target.appendChild($todoList);
 
-    this.state = params.initialState;
+    this.state = initialState;
+
     this.render = () => {
         // this.state = [{ text : '자바스크립트 공부하기}, { text: '....'}] 
 
@@ -19,7 +19,7 @@ function TodoList(params) {
         */
         $todoList.innserHTML = `
             <ul>
-                 ${this.state.map(todo => `<li>${todo.text}</li>`).join('')}
+                 ${this.state.map(({text}) => `<li>${text}</li>`).join('')}
             </ul>
         `
     }
