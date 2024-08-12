@@ -7,14 +7,21 @@ function TodoList(params) {
 
     this.state = params.initialState;
     this.render = () => {
-        let html = ''
+        // this.state = [{ text : '자바스크립트 공부하기}, { text: '....'}] 
 
-        for(let i = 0; i < this.state.length; i++) {
-            html += `<li>${this.state[i].text}</li>`
-        }
-        html = `<ul>${html}</ul>`
-
-        $todoList.innerHTML = html;
+        //map을 돈 이후에는 아래처럼 만들어 집니다.
+        /*
+        * this.state.map(todo => `<li>${todo.text}</li>`)
+        *   [{ text : '자바스크립트 공부하기}, { text: '<....'}]
+        *   [`<li>자바스크립트 공부하기</li>`,`<li>....</li>`]
+        *   join('') => join은 배열을 두 번째 인자를 기준으로 다 붙혀버리는 것이다
+        *   <li>자바스크립트 공부하기</li><li>....</li>
+        */
+        $todoList.innserHTML = `
+            <ul>
+                 ${this.state.map(todo => `<li>${todo.text}</li>`).join('')}
+            </ul>
+        `
     }
 
 }
