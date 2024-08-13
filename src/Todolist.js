@@ -17,9 +17,9 @@ function TodoList({$target, initialState}) {
         *   join('') => join은 배열을 두 번째 인자를 기준으로 다 붙혀버리는 것이다
         *   <li>자바스크립트 공부하기</li><li>....</li>
         */
-        $todoList.innserHTML = `
+        $todoList.innerHTML = `
             <ul>
-                 ${this.state.map(({text}) => `<li>${text}</li>`).join('')}
+                ${this.state.map(({text}) => `<li>${text}</li>`).join('')}
             </ul>
         `
     }
