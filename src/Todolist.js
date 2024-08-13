@@ -6,6 +6,11 @@ function TodoList({$target, initialState}) {
 
     this.state = initialState;
 
+    this.setState = nextState => {
+        this.state = nextState
+        this.render() 
+    }
+
     this.render = () => {
         // this.state = [{ text : '자바스크립트 공부하기}, { text: '....'}] 
 
