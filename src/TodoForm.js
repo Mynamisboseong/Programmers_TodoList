@@ -16,11 +16,16 @@ function TodoForm({ $target, onSubmit }) {
                 //해당 코드에서는 input form에 텍스트 입력 후 enter를 했을 때 화면이 새로고침되는 것을 막기 위함
                 $form.addEventListener('submit', e => {
                     e.preventDefault()
+                    
+                    const $todo = $form.querySelector('input[name=todo]')
+                    const text = $todo.value
 
-                    const text = $form.querySelector('input[name=todo]').value
-
-                    onSubmit(text)
+                    if (text.length > 1) {
+                        $todo.value = ''
+                        onSubmit(text)
+                    }
                 })
+                isInit = true
             }
         }
 
