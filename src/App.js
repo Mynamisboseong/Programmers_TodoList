@@ -14,7 +14,11 @@ function App ({ $target, initialState}) {
             const nextState = [...todoList.state, {
                 text
             }]
+            //'state'를 업데이트 하는 부분
             todoList.setState(nextState)
+
+            //localStorage.setItem으로 다음 nextState를 넣어주는 것
+            storage.setItem('todos',JSON.stringify(nextState))
         }
     })
 
